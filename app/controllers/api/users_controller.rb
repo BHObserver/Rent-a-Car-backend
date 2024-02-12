@@ -5,9 +5,9 @@ class Api::UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    render json: users
+    render json: @users
   end
-
+ 
   # GET /users/1
   # GET /users/1.json
 
