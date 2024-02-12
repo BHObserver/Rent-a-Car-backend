@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
     @users = User.all
     render json: @users
   end
- 
+
   # GET /users/1
   # GET /users/1.json
 
