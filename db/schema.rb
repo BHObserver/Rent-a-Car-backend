@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_095329) do
     t.datetime "end_time"
     t.string "start_location"
     t.string "destination"
+    t.float "total_cost"
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
     t.datetime "created_at", null: false
@@ -29,11 +30,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_095329) do
   end
 
   create_table "cars", force: :cascade do |t|
+    t.string "name"
     t.string "make"
     t.string "model"
     t.integer "year"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +55,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_095329) do
 
   add_foreign_key "car_reservations", "cars"
   add_foreign_key "car_reservations", "users"
+  add_foreign_key "cars", "users"
 end
