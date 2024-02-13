@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      post '/register', to: 'registrations#create'
-      post '/login', to: 'sessions#create'
-      delete '/logout', to: 'sessions#destroy'
-      resources :users
+      devise_for :users,
+                 path: '',
+                 path_names: {
+                   sign_in: 'login',
+                   sign_out: 'logout',
+                   registration: 'register'
+                 },
+                 controllers: {
+                   sessions: 'api/v1/sessions',
+                   registrations: 'api/v1/registrations'
+                 }
+
       resources :reservations
-      resources :cars, only: [:index, :create, :destroy] # Add this line
+      resources :cars, only: [:index, :create, :destroy]
     end
   end
 end
