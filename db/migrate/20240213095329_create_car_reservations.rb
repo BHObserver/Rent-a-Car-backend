@@ -6,6 +6,7 @@ class CreateCarReservations < ActiveRecord::Migration[7.1]
       t.datetime :end_time
       t.string :start_location
       t.string :destination
+      t.float :total_cost
       t.references :user, null: false, foreign_key: true
       t.references :car, null: false, foreign_key: true
 
