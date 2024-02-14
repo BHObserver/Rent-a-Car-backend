@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
-    post '/register', to: 'registration#create'
-    post '/login', to: 'session#create'
-    delete '/logout', to: 'session#destroy'
-    post '/signup', to: 'users#create'
-
+    namespace :v1 do
+      post '/register', to: 'registrations#create'
+      post '/login', to: 'sessions#create'
+      delete '/logout', to: 'sessions#destroy'
+      resources :users
+    end
   end
-end 
+end
