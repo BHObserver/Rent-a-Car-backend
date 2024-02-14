@@ -7,6 +7,8 @@ gem 'rails', '~> 7.1.3'
 
 gem 'devise'
 
+gem 'rspec-rails', '~> 3.0'
+
 gem 'rest-client'
 
 gem 'ffi'
