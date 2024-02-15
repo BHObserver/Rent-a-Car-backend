@@ -6,8 +6,7 @@ ruby '3.2.2'
 gem 'rails', '~> 7.1.3'
 
 gem 'devise'
-
-gem 'rspec-rails', '~> 3.0'
+gem 'rspec-rails'
 
 gem 'rest-client'
 
@@ -37,7 +36,6 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # Enable Cross-Origin Resource Sharing (CORS) in Rails for handling API requests from different origins.
-gem 'rack-cors'
 
 
 # Use Redis adapter to run Action Cable in production

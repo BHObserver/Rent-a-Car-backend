@@ -4,7 +4,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   def create
     @user = User.find_by(email: params[:email])
 
-    if @user && @user.valid_password?(params[:password])
+    if @user&.valid_password?(params[:password])
       sign_in @user, store: false
       render json: { message: 'Login successful', user: @user }, status: :ok
     else
