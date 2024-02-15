@@ -4,7 +4,7 @@ class Api::V1::RegistrationsController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      render json: { message: 'User created successfully' }, status: :created
+      render json: { message: 'User created successfully', id: @user.id }, status: :created
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
