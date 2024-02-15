@@ -8,5 +8,4 @@ class Car < ApplicationRecord
   validates :city, presence: true
   validates :model, presence: true
   validates :cost, presence: true, numericality: { greater_than_or_equal_to: 1 }
-
 end

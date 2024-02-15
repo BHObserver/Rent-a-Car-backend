@@ -35,7 +35,6 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # Enable Cross-Origin Resource Sharing (CORS) in Rails for handling API requests from different origins.
-gem 'rack-cors'
 
 
 # Use Redis adapter to run Action Cable in production
