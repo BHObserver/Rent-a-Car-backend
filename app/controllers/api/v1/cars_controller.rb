@@ -41,7 +41,7 @@ class Api::V1::CarsController < ApplicationController
     @car = Car.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through..
   def car_params
     params.require(:car).permit(:name, :model, :image, :description, :number_of_seats, :location, :fee, :reserved)
   end
