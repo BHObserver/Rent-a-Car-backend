@@ -5,6 +5,13 @@ ruby '3.2.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3'
 
+gem 'devise'
+gem 'rspec-rails'
+
+gem 'rest-client'
+
+gem 'ffi'
+
 gem 'rubocop', '>= 1.0', '< 2.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -19,6 +26,7 @@ gem 'puma', '>= 5.0'
 gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem 'rack-cors', require: 'rack/cors'
 gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
@@ -26,6 +34,8 @@ gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
+
+# Enable Cross-Origin Resource Sharing (CORS) in Rails for handling API requests from different origins.
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
