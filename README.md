@@ -161,6 +161,7 @@ You can deploy this project using:
 - GitHub: [@Surafels](https://github.com/Surafels)
 - LinkedIn: [surafel samson](https://www.linkedin.com/in/surafel-samson-4b2635267/)
 - Twitter: [@Surafel](https://twitter.com/SurafelSamson2)
+
 👤 **Ismail Halliru**
 
 - GitHub: [@yayaismaail ](https://github.com/yayaismaail)
