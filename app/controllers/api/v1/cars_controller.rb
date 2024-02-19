@@ -1,19 +1,24 @@
-# app/controllers/api/v1/cars_controller.rb
 class Api::V1::CarsController < ApplicationController
   # GET /cars
+  # GET /cars/1
   def index
-    @cars = if params[:user_id]
-              Car.where(user_id: params[:user_id])
-            else
-              Car.all
-            end
-    render json: { cars: @cars }
+    if params[:id]
+      @car = Car.find(params[:id])
+      render json: @car
+    else
+      @cars = if params[:user_id]
+                Car.where(user_id: params[:user_id])
+              else
+                Car.all.map { |car| car.attributes.merge(photo_url: url_for(car.photo)) } # Update to use photo_url
+              end
+      render json: { cars: @cars }
+    end
   end
 
-  # GET /cars/1
+
+
   def show
     @car = Car.find(params[:id])
-    render json: @car
   end
 
   # POST /cars
