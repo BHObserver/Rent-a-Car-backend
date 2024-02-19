@@ -2,7 +2,11 @@
 class Api::V1::CarsController < ApplicationController
   # GET /cars
   def index
-    @cars = Car.all
+    @cars = if params[:user_id]
+              Car.where(user_id: params[:user_id])
+            else
+              Car.all
+            end
     render json: { cars: @cars }
   end
 
@@ -43,6 +47,7 @@ class Api::V1::CarsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def car_params
-    params.require(:car).permit(:name, :model, :image, :description, :number_of_seats, :location, :fee, :reserved, :user_id)
+    params.require(:car).permit(:name, :model, :image, :description, :number_of_seats, :location, :fee, :reserved,
+                                :user_id)
   end
 end

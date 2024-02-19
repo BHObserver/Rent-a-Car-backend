@@ -5,6 +5,8 @@ class CreateCars < ActiveRecord::Migration[7.1]
       t.string :make
       t.string :model
       t.integer :year
+      t.boolean :available, default: true # Add the available attribute
+
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
