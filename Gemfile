@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '3.2.2'
+ruby '3.1.2'
+
+gem 'rails-spec'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3'
