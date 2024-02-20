@@ -17,11 +17,13 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def show
-  @car = Car.find(params[:id])
-  car_with_url = @car.attributes
-  car_with_url[:photo] = url_for(@car.photo)
-  render json: car_with_url
-end
+    @car = Car.find_by(id: params[:id])
+    if @car
+      render json: @car
+    else
+      render json: { error: 'Car not found' }, status: :not_found
+    end
+  end
 
   # POST /cars
   def create
