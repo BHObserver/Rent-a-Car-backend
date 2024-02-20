@@ -2,11 +2,12 @@ class CreateCars < ActiveRecord::Migration[7.1]
   def change
     create_table :cars do |t|
       t.string :name
-      t.string :photo
-      t.text :details
-      t.string :city
+      t.string :make
       t.string :model
-      t.decimal :cost
+      t.integer :year
+      t.boolean :available, default: true
+      t.string :photo_url
+
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

@@ -1,55 +1,21 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-
 # Seed Users
 User.find_or_create_by!(email: 'admin@example.com') do |user|
-    user.username = 'admin'
-    user.password = 'password'
-    user.password_confirmation = 'password'
-  end
-  
-  User.find_or_create_by!(email: 'user@example.com') do |user|
-    user.username = 'user'
-    user.password = 'password'
-    user.password_confirmation = 'password'
-  end
-  
-# Seed Cars
-Car.find_or_create_by!(name: 'Tesla Model S') do |car|
-  car.photo = 'tesla_model_s.jpg'
-  car.details = 'Electric car with advanced features'
-  car.city = 'San Francisco'
-  car.model = 'Model S'
-  car.cost = 100
-  car.user = admin
+  user.username = 'admin'
+  user.password = 'password'
+  user.password_confirmation = 'password'
 end
 
-Car.find_or_create_by!(name: 'BMW 3 Series') do |car|
-  car.photo = 'bmw_3_series.jpg'
-  car.details = 'Luxury sedan with excellent performance'
-  car.city = 'Los Angeles'
-  car.model = '3 Series'
-  car.cost = 120
-  car.user = user
+User.find_or_create_by!(email: 'user@example.com') do |user|
+  user.username = 'user'
+  user.password = 'password'
+  user.password_confirmation = 'password'
 end
 
-Car.find_or_create_by!(name: 'Toyota Camry') do |car|
-  car.photo = 'toyota_camry.jpg'
-  car.details = 'Reliable and fuel-efficient family sedan'
-  car.city = 'New York'
-  car.model = 'Camry'
-  car.cost = 80
-  car.user = admin
-end
+# Create five cars
+Car.create(name: 'BMW', make: 'BMW', model: 'X5', year: 2022, available: true, user_id: User.first.id, photo_url: 'https://www.dmarge.com/wp-content/uploads/2017/05/bmw1.jpg')
+Car.create(name: 'Camry', make: 'Toyota', model: 'Camry', year: 2021, available: true, user_id: User.first.id, photo_url: 'https://www.tflcar.com/wp-content/uploads/2017/06/2018-toyota-camry-se-hybrid.jpg')
+Car.create(name: 'Lexus', make: 'Lexus', model: 'RX', year: 2020, available: true, user_id: User.first.id, photo_url: 'https://s3.amazonaws.com/the-drive-staging/message-editor/1517819214668-img_0028.jpg')
+Car.create(name: 'Mercedes', make: 'Mercedes-Benz', model: 'E-Class', year: 2019, available: true, user_id: User.first.id, photo_url: 'https://www.topgear.com/sites/default/files/images/news-article/carousel/2018/02/1d3c9d0c910f73a05672edd39ff984db/17c833_009.jpg')
+Car.create(name: 'Rolls-Royce', make: 'Rolls-Royce', model: 'Phantom', year: 2018, available: true, user_id: User.first.id, photo_url: 'https://automotiveblog.co.uk/wp-content/uploads/2018/05/Rolls-Royce-Cullinan.jpg')
+
+puts 'Cars created successfully!'

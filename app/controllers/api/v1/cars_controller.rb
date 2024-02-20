@@ -1,15 +1,28 @@
 # app/controllers/api/v1/cars_controller.rb
 class Api::V1::CarsController < ApplicationController
   # GET /cars
+  # GET /cars/1
   def index
-    @cars = Car.all
-    render json: { cars: @cars }
+    if params[:id]
+      @car = Car.find(params[:id])
+      render json: @car
+    else
+      @cars = if params[:user_id]
+                Car.where(user_id: params[:user_id])
+              else
+                Car.all
+              end
+      render json: { cars: @cars }
+    end
   end
 
-  # GET /cars/1
   def show
-    @car = Car.find(params[:id])
-    render json: @car
+    @car = Car.find_by(id: params[:id])
+    if @car
+      render json: @car
+    else
+      render json: { error: 'Car not found' }, status: :not_found
+    end
   end
 
   # POST /cars
@@ -43,8 +56,7 @@ class Api::V1::CarsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def car_params
-    # params.require(:car).permit(:name, :model, :image, :description, :number_of_seats,
-    #  :location, :fee, :reserved, :user_id)
-    params.require(:car).permit(:name, :photo, :details, :city, :model, :cost, :reserved, :user_id)
+    params.require(:car).permit(:name, :model, :image, :description, :number_of_seats, :location, :fee, :reserved,
+                                :user_id)
   end
 end

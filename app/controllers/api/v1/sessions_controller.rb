@@ -6,7 +6,7 @@ class Api::V1::SessionsController < Devise::SessionsController
 
     if @user&.valid_password?(params[:password])
       sign_in @user, store: false
-      render json: { message: 'Login successful', user: @user }, status: :ok
+      render json: { message: 'Login successful', id: @user.id }, status: :ok # Include the user's ID in the response
     else
       render json: { error: 'Invalid email or password' }, status: :unauthorized
     end
