@@ -6,7 +6,7 @@ class CreateCars < ActiveRecord::Migration[7.1]
       t.string :model
       t.integer :year
       t.boolean :available, default: true
-      t.string :photo
+      t.string :photo_url
 
       t.references :user, null: false, foreign_key: true
 
