@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
       resources :reservations
       resources :cars, only: [:index, :create, :destroy]
+      resources :users, only: [:index, :show, :create, :update, :destroy]
+
     end
   end
 end
