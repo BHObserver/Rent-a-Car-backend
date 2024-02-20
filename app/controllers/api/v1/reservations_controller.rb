@@ -2,11 +2,11 @@ class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
 
   def index
-    if params[:user_id]
-      @reservations = CarReservation.where(user_id: params[:user_id])
-    else
-      @reservations = CarReservation.all
-    end
+    @reservations = if params[:user_id]
+                      CarReservation.where(user_id: params[:user_id])
+                    else
+                      CarReservation.all
+                    end
     render json: @reservations
   end
 
@@ -54,6 +54,6 @@ class Api::V1::ReservationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def reservation_params
     params.require(:reservation).permit(:reserved_date, :start_time, :end_time, :total_cost, :start_location,
-                                         :destination, :user_id, :car_id, :name)
+                                        :destination, :user_id, :car_id, :name)
   end
 end
