@@ -56,7 +56,6 @@ class Api::V1::CarsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def car_params
-    params.require(:car).permit(:name, :model, :image, :description, :number_of_seats, :location, :fee, :reserved,
-                                :user_id)
+    params.require(:car).permit(:name, :make, :model, :year, :photo_url, :user_id)
   end
 end
