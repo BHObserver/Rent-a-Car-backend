@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: BurSqlHan#007
+  pool: 5
+
+development:
+  <<: *default
+  database: rent_a_car_backend_development
+  username: postgres
+  password: BurSqlHan#007
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: rent_a_car_backend_test
+  username: postgres
+  password: BurSqlHan#007
+
+production:
+  <<: *default
+  database: rent_a_car_backend_production
+  username: postgres
+  password: BurSqlHan#007
