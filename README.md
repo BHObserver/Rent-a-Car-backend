@@ -116,6 +116,28 @@ To setup this project, run this command:
 ```sh
 rails s
 ```
+To install the dependencies:
+
+```sh
+bundle install
+```
+To Create the database  run this command:
+
+```sh
+rails db:create
+```
+To apply any pending database migrations run this command:
+
+```sh
+  rails db:migrate
+```
+To Seed the database with initial data run this command:
+
+```sh
+rails db:seed
+```
+Note: Make sure you have a configured database connection in `config/database.yml` before running these commands.
+
 ### Prerequisites
 
 1. A Code Editor
