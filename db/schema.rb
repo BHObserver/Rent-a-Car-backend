@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_15_125329) do
     t.string "make"
     t.string "model"
     t.integer "year"
+    t.float "cost"
     t.boolean "available", default: true
     t.string "photo_url"
     t.bigint "user_id", null: false
